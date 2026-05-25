@@ -4,6 +4,7 @@ import com.peliculas.dao.DirectorDAO;
 import com.peliculas.model.Director;
 
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
             System.out.println("1. Adicionar un Director");
             System.out.println("2. Consultar TODOS los directores");
             System.out.println("3. Consultar UN director por ID");
+            System.out.println("4. Filtrar directores por PAÍS");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
 
@@ -50,6 +52,19 @@ public class Main {
                             System.out.println("Encontrado: " + encontrado.toString());
                         } else {
                             System.out.println("No se encontró ningún director con el ID " + idBuscar);
+                        }
+                        break;
+                    case 4:
+                        System.out.print("Ingresa el país para filtrar (Ej: Reino Unido): ");
+                        String paisFiltro = scanner.nextLine();
+                        System.out.println("\n--- RESULTADOS DEL FILTRO ---");
+                        List<Director> filtrados = directorDAO.filtrarPorPais(paisFiltro);
+                        if (filtrados.isEmpty()) {
+                            System.out.println("No se encontraron directores de " + paisFiltro);
+                        } else {
+                            for (Director d : filtrados) {
+                                System.out.println(d.toString());
+                            }
                         }
                         break;
                     case 0:
