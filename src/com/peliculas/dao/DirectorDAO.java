@@ -93,4 +93,42 @@ public class DirectorDAO {
         }
         return lista;
     }
+    // --- NUEVO MÉTODO: Actualizar un director ---
+    public void actualizarDirector(int id, String nuevoNombre, String nuevoPais) {
+        String sql = "UPDATE directores SET nombre = ?, pais = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nuevoNombre);
+            pstmt.setString(2, nuevoPais);
+            pstmt.setInt(3, id);
+
+            int filasAfectadas = pstmt.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("¡Director actualizado con éxito!");
+            } else {
+                System.out.println("No se encontró el director con ese ID.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al actualizar director: " + e.getMessage());
+        }
+    }
+
+    // --- NUEVO MÉTODO: Eliminar un director ---
+    public void eliminarDirector(int id) {
+        String sql = "DELETE FROM directores WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            int filasAfectadas = pstmt.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("¡Director eliminado con éxito!");
+            } else {
+                System.out.println("No se encontró el director con ese ID.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar director: " + e.getMessage());
+        }
+    }
 }
