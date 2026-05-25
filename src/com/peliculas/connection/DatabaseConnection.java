@@ -8,7 +8,7 @@ public class DatabaseConnection {
 
     private static final String URL = "jdbc:postgresql://ep-restless-cherry-aqic6ge4-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
     private static final String USER = "neondb_owner";
-    private static final String PASSWORD = "PONER_AQUI_LA_CONTRASEÑA\";
+    private static final String PASSWORD = "Contraseña";
 
     public static Connection getConnection() {
         Connection connection = null;
