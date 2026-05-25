@@ -1,26 +1,25 @@
-# Gestor de Películas y Directores - Parcial 2 🎬
+# Parcial 2 - Programación Orientada a Objetos
 
-Este es un proyecto en Java desarrollado para el segundo parcial de Programación Orientada a Objetos. Permite gestionar una base de datos de Directores y Películas utilizando el patrón DAO y conexión a una base de datos remota en Neon (PostgreSQL).
+Presentado por: [Tu Nombre]
+Código: [Tu Código]
 
-## 🚀 Funcionalidades (Menú Infinito)
-- Adicionar un registro (Director)
-- Consultar TODOS los registros
-- Consultar UN registro por ID
-- Filtrar directores por PAÍS (Criterio elaborado)
-- Actualizar un registro
-- Eliminar un registro
+## Descripción
+Este proyecto corresponde a la sustentación del segundo parcial. Consiste en una aplicación Java en consola que gestiona la información de los modelos Director y Película, aplicando persistencia de datos en un servidor remoto.
 
-## 🛠️ Tecnologías Usadas
-- **Java 17+**
-- **PostgreSQL (Neon Tech)**
-- **Git y GitHub**
+## Estructura y requerimientos
+- Se implementó el patrón DAO para separar la lógica de base de datos.
+- Cuenta con un menú infinito iterativo.
+- Permite operaciones de lectura (todos y por ID), escritura, actualización y eliminación.
+- Incluye un filtro específico para buscar directores por país.
+- La base de datos es relacional (PostgreSQL) y está alojada en Neon.
 
-## 🔒 Configuración de Credenciales (Importante para el evaluador)
-Por motivos de seguridad, la contraseña de la base de datos no está expuesta en este repositorio. 
-Para ejecutar el proyecto, debe dirigirse a la clase `DatabaseConnection.java` ubicada en `src/com/peliculas/connection/` y reemplazar el valor de la variable `password` (que actualmente dice `"PONER_AQUI_LA_CONTRASEÑA"`) por la contraseña real suministrada por el estudiante.
+## Configuración de conexión
+Por directrices de seguridad, la contraseña de la base de datos no se subió al repositorio público. Para que el proyecto compile y se conecte correctamente:
+1. Navegue hasta `src/com/peliculas/connection/DatabaseConnection.java`.
+2. Ubique la variable `password`.
+3. Reemplace el texto actual por la credencial de acceso suministrada en la entrega.
 
-## 📊 Diagrama Entidad-Relación (Modelo)
-A continuación, se presenta la estructura de la base de datos implementada:
+## Modelo Entidad-Relación
 
 ```mermaid
 erDiagram
