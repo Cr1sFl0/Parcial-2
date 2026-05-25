@@ -18,6 +18,8 @@ public class Main {
             System.out.println("2. Consultar TODOS los directores");
             System.out.println("3. Consultar UN director por ID");
             System.out.println("4. Filtrar directores por PAÍS");
+            System.out.println("5. Actualizar un director");
+            System.out.println("6. Eliminar un director");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
 
@@ -31,11 +33,9 @@ public class Main {
                         String nombre = scanner.nextLine();
                         System.out.print("Ingresa el país del director: ");
                         String pais = scanner.nextLine();
-
                         Director nuevoDirector = new Director();
                         nuevoDirector.setNombre(nombre);
                         nuevoDirector.setPais(pais);
-
                         directorDAO.agregarDirector(nuevoDirector);
                         break;
                     case 2:
@@ -66,6 +66,21 @@ public class Main {
                                 System.out.println(d.toString());
                             }
                         }
+                        break;
+                    case 5:
+                        System.out.print("Ingresa el ID del director a actualizar: ");
+                        int idActualizar = scanner.nextInt();
+                        scanner.nextLine(); // Limpiar el buffer
+                        System.out.print("Ingresa el nuevo nombre: ");
+                        String nuevoNombre = scanner.nextLine();
+                        System.out.print("Ingresa el nuevo país: ");
+                        String nuevoPais = scanner.nextLine();
+                        directorDAO.actualizarDirector(idActualizar, nuevoNombre, nuevoPais);
+                        break;
+                    case 6:
+                        System.out.print("Ingresa el ID del director a eliminar: ");
+                        int idEliminar = scanner.nextInt();
+                        directorDAO.eliminarDirector(idEliminar);
                         break;
                     case 0:
                         System.out.println("Saliendo del programa... ¡Hasta luego!");
